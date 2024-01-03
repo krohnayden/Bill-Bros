@@ -1,4 +1,11 @@
 const router = require('express').Router();
+
+
+router.get('/', async (req, res) => {
+  // Send the rendered Handlebars.js template back as the response
+  res.render('homepage');
+});
+
 const { Category, User } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -19,7 +26,7 @@ router.get('/', async (req, res) => {
 
     // Pass serialized data and session flag into template
 
-    // must specify handlebar route line 24
+    // must specify handlebar route line 31
 
     res.render('', { 
       categories, 
@@ -54,7 +61,7 @@ router.get('/categories/:id', async (req, res) => {
 
 // Use withAuth middleware to prevent access to route
 
-// need to specify handlebar route line 56, 66, 78
+// need to specify handlebar route line 
 
 router.get('/', withAuth, async (req, res) => {
   try {
@@ -86,3 +93,4 @@ router.get('/login', (req, res) => {
 });
 
 module.exports = router;
+
