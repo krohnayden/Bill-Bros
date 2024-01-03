@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
 });
 
 const { Category, User } = require('../models');
-const withAuth = require('../utils/auth');
+const withAuth = require('../helpers/auth');
 
 router.get('/', async (req, res) => {
   try {
