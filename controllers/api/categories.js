@@ -2,11 +2,12 @@ const router = require('express').Router();
 const { Category } = require('../../models');
 const withAuth = require('../../helpers/auth');
 
-router.post('/', withAuth, async (req, res) => {
+// router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newCategory = await Category.create({
       ...req.body,
-      user_id: req.session.user_id,
+      // user_id: req.session.user_id,
     });
 
     res.status(200).json(newCategory);

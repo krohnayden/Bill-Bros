@@ -23,10 +23,10 @@ Category.init(
         allowNull: false,
         defaultValue: DataTypes.NOW,
     },
-    categories_id: {
+    user_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'categories',
+            model: 'user',
             key: 'id',
         },
     },
