@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Track a new transaction:</h3>
+
+    <form class="form new-transaction-form">
+      <div class="form-group">
+        <label for="transaction-name">Transaction name:</label>
+        <input class="form-input" type="text" id="transaction-name" name="transaction-name" />
+      </div>
+      <div class="form-group">
+        <label for="transaction-funding">Description:</label>
+        <input class="form-input" type="number" id="transaction-funding" name="transaction-funding" />
+      </div>
+      <div class="form-group">
+        <label for="transaction-desc">Amount due:</label>
+        <textarea class="form-input" id="transaction-desc" name="transaction-desc"></textarea>
+      </div>
+        <div class="form-group">
+        <label for="transaction-desc">Date Due:</label>
+        <textarea class="form-input" id="transaction-desc" name="transaction-desc"></textarea>
+      </div>
+      </div>
+        <div class="form-group">
+        <label for="transaction-desc">Choose a category to sort this transaction.</label>
+        <textarea class="form-input" id="transaction-desc" name="transaction-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if transactions.length}}
+  <div class="col-md-6 transaction-list">
+    <h3>Current Transactions:</h3>
+
+    {{#each transaction as |transaction|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/transaction/{{transaction.id}}">{{transaction.name}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{transaction.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<script src="./js/profile.js"></script>
