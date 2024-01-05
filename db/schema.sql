@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS billTracker_db
-CREATE DATABASE billTracker_db
+DROP DATABASE IF EXISTS billTracker_db;
+CREATE DATABASE billTracker_db;
