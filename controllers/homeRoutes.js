@@ -1,13 +1,11 @@
 const router = require('express').Router();
-
+const { Category, User } = require('../models');
+const withAuth = require('../helpers/auth');
 
 router.get('/', async (req, res) => {
   // Send the rendered Handlebars.js template back as the response
-  res.render('homepage');
+  res.render('login');
 });
-
-const { Category, User } = require('../models');
-const withAuth = require('../helpers/auth');
 
 router.get('/', async (req, res) => {
   try {
@@ -73,7 +71,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('', {
+    res.render('dashboard', {
       ...user,
       logged_in: true
     });
