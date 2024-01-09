@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Category, User } = require('../models');
+const { Category, User, Transaction } = require('../models');
 const withAuth = require('../helpers/auth');
 
 router.get('/', async (req, res) => {
@@ -61,20 +61,24 @@ router.get('/categories/:id', async (req, res) => {
 
 // need to specify handlebar route line 
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Category }],
+      include: [{ model: Transaction }],
     });
 
     const user = userData.get({ plain: true });
 
+    console.log(user);
+    
     res.render('dashboard', {
       ...user,
       logged_in: true
     });
+
+    
   } catch (err) {
     res.status(500).json(err);
   }
