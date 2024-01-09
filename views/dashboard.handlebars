@@ -10,12 +10,12 @@
 
     <form class="form new-transaction-form">
       <div class="form-group">
-        <label for="transaction-name">Transaction name:</label>
+        <label for="transaction-name">Transaction name: </label>
         <input class="form-input" type="text" id="transaction-name" name="transaction-name" />
       </div>
       <div class="form-group">
         <label for="transaction-funding">Description:</label>
-        <input class="form-input" type="number" id="transaction-funding" name="transaction-funding" />
+        <input class="form-input" type="text" id="transaction-funding" name="transaction-funding" />
       </div>
       <div class="form-group">
         <label for="transaction-desc">Amount due:</label>
@@ -23,7 +23,7 @@
       </div>
         <div class="form-group">
         <label for="transaction-desc">Date Due:</label>
-        <textarea class="form-input" id="transaction-desc" name="transaction-desc"></textarea>
+        <textarea class="form-input" id="transaction-date" name="transaction-desc"></textarea>
       </div>
       </div>
         <div class="form-group">
@@ -31,7 +31,7 @@
         <textarea class="form-input" id="transaction-desc" name="transaction-desc"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary create">Create</button>
       </div>
     </form>
   </div>
@@ -52,6 +52,12 @@
     {{/each}}
   </div>
   {{/if}}
+
+  <button id="logout-btn">
+    Logout 
+  </button>
 </div>
 
-<script src="./js/profile.js"></script>
+<script src="./js/logout.js"></script>
+<script src="./js/dashboard.js"></script>
+

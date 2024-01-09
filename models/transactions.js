@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Transaction extends Model {}
 
@@ -23,20 +23,27 @@ Transaction.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    categories_id: {
+    user_id: {
       type: DataTypes.INTEGER,
-      references: {
-        model: 'category',
-        key: 'id',
+      refrences: {
+        model: "user",
+        key: "id",
       },
     },
   },
+  // categories_id: {
+  //   type: DataTypes.INTEGER,
+  //   references: {
+  //     model: 'category',
+  //     key: 'id',
+  //   },
+  // },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'transaction',
+    modelName: "transaction",
   }
 );
 
