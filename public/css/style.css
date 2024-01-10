@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: center;
     align-content: space-around;
+    
 
 
   }
@@ -127,6 +128,7 @@ input {
     padding: 2.5rem;
     text-align: center;
     align-content: center;
+    scale: 1.5;
   }
   
   footer { 
