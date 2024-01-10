@@ -18,6 +18,10 @@ Transaction.init(
     description: {
       type: DataTypes.STRING,
     },
+    amount_due: {
+      type: DataTypes.INTEGER,
+      allowNull: false, 
+    },
     date_due: {
       type: DataTypes.DATE,
       allowNull: false,

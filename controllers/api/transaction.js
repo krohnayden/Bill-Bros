@@ -13,9 +13,12 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
+    console.log(req.body);
     const newTransaction = await Transaction.create({
       ...req.body,
+      user_id: req.session.user_id,
     });
+    console.log('Here', newTransaction);
 
     res.status(200).json(newTransaction);
   } catch (err) {

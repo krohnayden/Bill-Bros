@@ -69,12 +69,22 @@ router.get('/profile', withAuth, async (req, res) => {
       include: [{ model: Transaction }],
     });
 
-    const user = userData.get({ plain: true });
+    const transactionData = await Transaction.findAll({
+      where: {
+        user_id: req.session.user_id
+      }
+    });
 
+    const transactions = transactionData.map((transaction) => 
+      transaction.get({ plain: true }));
+    console.log('Transactions:', transactions);
+
+    const user = userData.get({ plain: true });
     console.log(user);
-    
+
     res.render('dashboard', {
       ...user,
+      transactions,
       logged_in: true
     });
 
