@@ -31,6 +31,14 @@ input {
   color: black;
 }
 
+.welcomeMsg {
+  padding-top: 3rem;
+}
+
+#transactionHdr {
+  padding: 0rem 0rem 2rem 0rem;
+  text-decoration: underline 2px;
+}
 html {
   font-size: 62.5%;
 }
@@ -122,4 +130,14 @@ footer {
   flex-basis: auto;
   justify-content: center;
   padding-right: 10rem;
+}
+
+.formLabel {
+  text-decoration: underline 2px;
+  padding: 3px;
+}
+
+#transactionRef {
+  text-decoration: underline;
+  color: white
 }
