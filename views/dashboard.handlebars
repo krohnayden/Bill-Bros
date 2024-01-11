@@ -21,10 +21,6 @@
         <label for="transaction-amount" class="formLabel">Amount Due:</label>
         <input class="form-input" id="transaction-amount" name="transaction-amount"></textarea>
       </div>
-      <div class="form-group">
-        <label for="transaction-date" class="formLabel">Date Due:</label>
-        <input class="form-input" id="transaction-date" name="transaction-date"></textarea>
-      </div>
       {{!--
   </div>
   <div class="form-group">
@@ -44,8 +40,13 @@
   {{#each transactions as |transaction|}}
   <div class="row mb-2 ">
     <div class="col-md-8">
-      <h4><a href="/controllers/api/transaction/{{transaction.id}}" id="transactionRef">{{transaction.name}}</a></h4>
-
+      <h4><a href="/controllers/api/transaction/{{transaction.id}}" id="transactionRef">{{transaction.name}} 
+            <ul>
+              <li>{{transaction.description}}</li>
+              <li>${{transaction.amount_due}}</li>
+            </ul>
+          </a>
+      </h4>
     </div>
     <div class="col-md-4">
       <button class="btn btn-sm btn-danger" data-id="{{transaction.id}}">DELETE</button>

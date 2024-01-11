@@ -7,8 +7,6 @@ const createTransactionHandler = async (event) => {
   let description = document.querySelector('#transaction-desc').value.trim();
   let user_id = event.target.getAttribute('id')
 
-
-  // if (transaction) {
   const response = await fetch('/api/transaction', {
     method: 'POST',
     body: JSON.stringify({ name, amount_due, description, user_id}),
@@ -18,18 +16,30 @@ const createTransactionHandler = async (event) => {
 
   
   document.location.replace('/profile');
-
-  
-
-
-//   if (response.ok) {
-//     document.location.replace('/profile');
-//   } else {
-//     alert(response.statusText);
-//   }
-// }
 };
-document.querySelector('.create').addEventListener('click', createTransactionHandler);
 
+const deleteTransactionHandler = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+
+    const response = await fetch(`/api/transaction/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to delete transaction');
+    }
+  }
+};
+
+
+document
+  .querySelector('.create')
+  .addEventListener('click', createTransactionHandler);
+document
+  .querySelector('.transaction-list')
+  .addEventListener('click', deleteTransactionHandler);
 
 
