@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row welcomeMsg">
   <div class="col-auto">
     <h2>Welcome, {{name}}!</h2>
   </div>
@@ -6,60 +6,59 @@
 
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Track a new transaction:</h3>
+    <h3 id="transactionHdr">Track a new transaction:</h3>
 
     <form class="form new-transaction-form">
       <div class="form-group">
-        <label for="transaction-name">Transaction name: </label>
+        <label for="transaction-name" class="formLabel">Transaction Name: </label>
         <input class="form-input" type="text" id="transaction-name" name="transaction-name" />
       </div>
       <div class="form-group">
-        <label for="transaction-desc">Description:</label>
+        <label for="transaction-desc" class="formLabel">Description:</label>
         <input class="form-input" type="text" id="transaction-desc" name="transaction-desc" />
       </div>
       <div class="form-group">
-        <label for="transaction-amount">Amount due:</label>
-        <textarea class="form-input" id="transaction-amount" name="transaction-amount"></textarea>
+        <label for="transaction-amount" class="formLabel">Amount Due:</label>
+        <input class="form-input" id="transaction-amount" name="transaction-amount"></textarea>
       </div>
-        <div class="form-group">
-        <label for="transaction-date">Date Due:</label>
-        <textarea class="form-input" id="transaction-date" name="transaction-date"></textarea>
-      </div>
-      {{!-- </div>
-        <div class="form-group">
-        <label for="transaction-category">Choose a category to sort this transaction.</label>
-        <textarea class="form-input" id="transaction-desc" name="transaction-desc"></textarea>
-      </div> --}}
       <div class="form-group">
-        <button type="submit" id="{{id}}" class="btn btn-primary create">Create</button>
+        <label for="transaction-date" class="formLabel">Date Due:</label>
+        <input class="form-input" id="transaction-date" name="transaction-date"></textarea>
       </div>
-    </form>
+      {{!--
   </div>
+  <div class="form-group">
+    <label for="transaction-category">Choose a category to sort this transaction.</label>
+    <textarea class="form-input" id="transaction-desc" name="transaction-desc"></textarea>
+  </div> --}}
+  <div class="form-group">
+    <button type="submit" id="{{id}}" class="btn btn-primary create">Create</button>
+  </div>
+  </form>
+</div>
 
-  {{#if transactions.length}}
-  <div class="col-md-6 transaction-list">
-    <h3>Current Transactions:</h3>
+{{#if transactions.length}}
+<div class="col-md-6 transaction-list">
+  <h3>Current Transactions:</h3>
 
-    {{#each transactions as |transaction|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/controllers/api/transaction/{{transaction.id}}">{{transaction.name}}</a></h4>
-        
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{transaction.id}}">DELETE</button>
-      </div>
+  {{#each transactions as |transaction|}}
+  <div class="row mb-2 ">
+    <div class="col-md-8">
+      <h4><a href="/controllers/api/transaction/{{transaction.id}}" id="transactionRef">{{transaction.name}}</a></h4>
+
     </div>
-    {{/each}}
+    <div class="col-md-4">
+      <button class="btn btn-sm btn-danger" data-id="{{transaction.id}}">DELETE</button>
+    </div>
   </div>
-  {{/if}}
+  {{/each}}
+</div>
+{{/if}}
 
-  <button id="logout-btn">
-    Logout 
-  </button>
+<button id="logout-btn" >
+  Logout
+</button>
 </div>
 
 <script src="./js/logout.js"></script>
 <script src="./js/dashboard.js"></script>
-
-
